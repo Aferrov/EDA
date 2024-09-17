@@ -175,10 +175,12 @@ int main(int argc, char *argv[]){
     }
     const auto start = std::chrono::high_resolution_clock::now();
     //BubbleSort(a,n);
-    InsertionSort(a,n);
+    //InsertionSort(a,n);
+    SelectionSort(a,n);
     const auto end = std::chrono::high_resolution_clock::now();
     const std::chrono::duration<double> diff = end - start;
     
     //cout << "Tiempo de bubble sort "<< diff.count()<< '\n';
-    cout << "Tiempo de insertion sort "<< diff.count()<< '\n';
+    //cout << "Tiempo de insertion sort "<< diff.count()<< '\n';
+    cout << "Tiempo de selection sort "<< diff.count()<< '\n';
 }
