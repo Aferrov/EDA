@@ -7,18 +7,19 @@
 using namespace std;
 #define MaxLength 1000001
 
-void BubbleSort(float arr[], int tam){
-    float s=0;
-    for(int i=0; i<tam; i++){
-        for(int j=0; j<tam; j++){
-            if(arr[i]<arr[j]){
-                s = arr[i];
-                arr[i] = arr[j];
-                arr[j] = s;
+void BubbleSort(float arr[], int tam) {
+    float s = 0;
+    for (int i = 0; i < tam - 1; i++) {
+        for (int j = 0; j < tam - 1 - i; j++) {
+            if (arr[j] > arr[j + 1]) {
+                s = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = s;
             }
         }
     }
 }
+
 
 void InsertionSort(float arr[], int tam){
     for (int i = 1; i < tam; ++i) {
@@ -156,13 +157,6 @@ void QuickSort(float arr[], int low, int high) {
     }
 }
 
-void imprimir(float arr[], int n){
-    for(int i=0; i<n; i++){
-        cout<<arr[i]<<endl;
-    }
-    cout<<endl;
-}
-
 int main(int argc, char *argv[]){
     float a[MaxLength];
     string nomArchivo = argv[1];
@@ -176,11 +170,19 @@ int main(int argc, char *argv[]){
     const auto start = std::chrono::high_resolution_clock::now();
     //BubbleSort(a,n);
     //InsertionSort(a,n);
-    SelectionSort(a,n);
+    //SelectionSort(a,n);
+    //MergeSort(a,0,n);
+    //HeapSort(a,n);
+    //ShellSort(a,n);
+    QuickSort(a,0,n);
     const auto end = std::chrono::high_resolution_clock::now();
     const std::chrono::duration<double> diff = end - start;
     
     //cout << "Tiempo de bubble sort "<< diff.count()<< '\n';
     //cout << "Tiempo de insertion sort "<< diff.count()<< '\n';
-    cout << "Tiempo de selection sort "<< diff.count()<< '\n';
+    //cout << "Tiempo de selection sort "<< diff.count()<< '\n';
+    //cout << "Tiempo de merge sort "<< diff.count()<< '\n';
+    //cout << "Tiempo de heap sort "<< diff.count()<< '\n';
+    //cout << "Tiempo de shell sort "<< diff.count()<< '\n';
+    cout << "Tiempo de quicksort "<< diff.count()<< '\n';
 }
